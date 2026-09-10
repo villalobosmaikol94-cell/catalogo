@@ -182,3 +182,49 @@ footer {
     z-index: 10;
     letter-spacing: 0.5px;
 }
+/* ==========================================
+   NUEVOS EFECTOS VISUALES Y ANIMACIONES
+   ========================================== */
+
+/* Animación de entrada suave para todo el catálogo */
+.catalogo {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Efecto mejorado al tocar o pasar el mouse por la tarjeta */
+.tarjeta-producto {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-10px); /* Se eleva con elegancia */
+    box-shadow: 0 15px 30px rgba(181, 124, 124, 0.2); /* Sombra suave con el tono rosa de tu marca */
+}
+
+/* Efecto de Zoom Suave en la foto del calzado */
+.foto-producto, .carrusel-foto {
+    transition: transform 0.5s ease;
+}
+
+.tarjeta-producto:hover .foto-producto,
+.tarjeta-producto:hover .carrusel-foto {
+    transform: scale(1.05); /* Amplía la imagen un 5% de forma muy sutil y estética */
+}
+
+/* Animación de pulso para el botón de WhatsApp (Llama a la acción) */
+.btn-whatsapp {
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.02); /* Se agranda un poquito al tocarlo */
+    background-color: #128c7e;
+}
