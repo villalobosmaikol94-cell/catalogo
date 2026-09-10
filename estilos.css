@@ -5,12 +5,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Playfair Display', 'Segoe UI', serif;
 }
 
 body {
     background-color: #fbf7f5; /* Fondo rosa pálido muy suave */
     color: #4a3b32; /* Texto marrón oscuro elegante */
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
 }
 
 /* ==========================================
@@ -22,7 +22,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #fbf7f5; /* Mismo fondo suave de tu marca */
+    background-color: #fbf7f5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,6 +43,7 @@ body {
 }
 
 .contenido-carga h2 {
+    font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
     color: #b57c7c;
     letter-spacing: 4px;
@@ -61,34 +62,33 @@ body {
     to { transform: scale(1); opacity: 1; }
 }
 
-/* Clase que se activa con JavaScript para desvanecer la pantalla */
 .ocultar-carga {
     opacity: 0;
     visibility: hidden;
 }
 
 /* ==========================================
-   NUEVO ENCABEZADO COMPACTO Y ELEGANTE (ESCRITORIO)
+   NUEVO ENCABEZADO COMPACTO Y ELEGANTE
    ========================================== */
 header {
     background-color: #ffffff;
-    padding: 15px 20px; /* Mucho más delgado y delicado */
+    padding: 15px 20px;
     border-bottom: 2px solid #d4af37;
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
     position: sticky;
     top: 0;
-    z-index: 99; /* Se queda fijo arriba al bajar */
+    z-index: 99;
 }
 
 .header-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* Coloca el logo al lado del texto */
+    gap: 15px;
 }
 
 .logo-min {
-    max-width: 55px; /* Tamaño discreto y refinado */
+    max-width: 55px;
     height: auto;
     border-radius: 50%;
 }
@@ -98,6 +98,7 @@ header {
 }
 
 header h1 {
+    font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     color: #b57c7c;
     letter-spacing: 2px;
@@ -112,13 +113,45 @@ header h1 {
 }
 
 /* ==========================================
+   BARRA DE CATEGORÍAS ELEGANTE
+   ========================================== */
+.categorias-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 10px 5px 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn-categoria {
+    background-color: #ffffff;
+    border: 1px solid #f0e6e1;
+    color: #7a685d;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.btn-categoria.activo, .btn-categoria:hover {
+    background-color: #b57c7c; /* Tono oro rosa de tu marca */
+    color: #ffffff;
+    border-color: #b57c7c;
+    box-shadow: 0 4px 10px rgba(181, 124, 124, 0.2);
+}
+
+/* ==========================================
    CUADRÍCULA DE PRODUCTOS (ESCRITORIO)
    ========================================== */
 .catalogo {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    padding: 40px 20px;
+    padding: 25px 20px 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
     animation: fadeIn 0.8s ease-in-out;
@@ -150,7 +183,7 @@ header h1 {
     box-shadow: 0 15px 30px rgba(181, 124, 124, 0.2);
 }
 
-/* Fotos estáticas normales (Nike Shox) */
+/* Fotos estáticas normales */
 .foto-producto {
     width: 100%;
     height: 320px;
@@ -178,9 +211,11 @@ header h1 {
 }
 
 .info-producto h3 {
+    font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
     margin-bottom: 10px;
     color: #4a3b32;
+    font-weight: 700;
 }
 
 .descripcion {
@@ -287,7 +322,7 @@ footer {
    ========================================== */
 @media (max-width: 580px) {
     header {
-        padding: 12px 15px; /* Encabezado súper minimalista en celular */
+        padding: 12px 15px;
     }
     
     header h1 {
@@ -300,7 +335,17 @@ footer {
     }
 
     .logo-min {
-        max-width: 45px; /* Logo discreto para la barra fija móvil */
+        max-width: 45px;
+    }
+
+    .categorias-contenedor {
+        padding: 15px 8px 0px 8px;
+        gap: 6px;
+    }
+
+    .btn-categoria {
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
 
     /* 2 Columnas perfectas tipo Instagram Shop */
@@ -314,7 +359,7 @@ footer {
         border-radius: 12px;
     }
 
-    /* FOTOS MÁS GRANDES EN CELULAR (De 180px subió a 230px) */
+    /* Fotos a 230px */
     .foto-producto, 
     .carrusel-contenedor {
         height: 230px !important; 
@@ -350,7 +395,7 @@ footer {
         margin-bottom: 10px;
         height: auto;
         display: -webkit-box;
-        -webkit-line-clamp: 2; /* Corta ordenadamente a 2 líneas */
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
