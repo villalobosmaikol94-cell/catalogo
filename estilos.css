@@ -70,7 +70,7 @@ header h1 {
 .foto-producto {
     width: 100%;
     height: 300px;
-    object-fit: cover;
+    object-fit: cover; /* Ajuste estético original */
 }
 
 .info-producto {
@@ -103,10 +103,10 @@ header h1 {
 /* Botón de WhatsApp elegante */
 .btn-whatsapp {
     display: inline-block;
-    background-color: #25d366; /* Verde para dar confianza al hacer clic */
+    background-color: #25d366; 
     color: white;
     padding: 14px 20px;
-    border-radius: 30px; /* Bordes redondeados y delicados */
+    border-radius: 30px; 
     text-decoration: none;
     font-weight: bold;
     letter-spacing: 1px;
