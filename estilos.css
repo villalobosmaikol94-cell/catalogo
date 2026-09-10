@@ -1,4 +1,6 @@
-/* Configuraciones Generales */
+/* ==========================================
+   CONFIGURACIONES GENERALES
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -11,38 +13,107 @@ body {
     color: #4a3b32; /* Texto marrón oscuro elegante */
 }
 
-/* Estilo del Encabezado (Logo y Marca) */
-header {
-    background-color: #ffffff;
-    padding: 40px 20px;
-    text-align: center;
-    border-bottom: 2px solid #d4af37; /* Línea dorada sutil */
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
+/* ==========================================
+   PANTALLA DE CARGA / BIENVENIDA (SPLASH SCREEN)
+   ========================================== */
+#pantalla-carga {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fbf7f5; /* Mismo fondo suave de tu marca */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease, visibility 0.6s;
 }
 
-.logo {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 15px;
+.contenido-carga {
+    text-align: center;
+    animation: scaleUp 0.8s ease-out;
+}
+
+.logo-carga {
+    max-width: 180px;
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 25px rgba(181, 124, 124, 0.2);
+    margin-bottom: 20px;
+}
+
+.contenido-carga h2 {
+    font-size: 2.2rem;
+    color: #b57c7c;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.contenido-carga p {
+    color: #8c7365;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Clase que se activa con JavaScript para desvanecer la pantalla */
+.ocultar-carga {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ==========================================
+   NUEVO ENCABEZADO COMPACTO Y ELEGANTE (ESCRITORIO)
+   ========================================== */
+header {
+    background-color: #ffffff;
+    padding: 15px 20px; /* Mucho más delgado y delicado */
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 99; /* Se queda fijo arriba al bajar */
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Coloca el logo al lado del texto */
+}
+
+.logo-min {
+    max-width: 55px; /* Tamaño discreto y refinado */
+    height: auto;
+    border-radius: 50%;
+}
+
+.texto-header {
+    text-align: left;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    color: #b57c7c; /* Tono oro rosa / rojizo suave del logo */
-    letter-spacing: 3px;
+    font-size: 1.8rem;
+    color: #b57c7c;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .eslogan {
     color: #8c7365;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-style: italic;
-    margin-top: 5px;
+    margin-top: 2px;
 }
 
-/* Cuadrícula de Productos */
+/* ==========================================
+   CUADRÍCULA DE PRODUCTOS (ESCRITORIO)
+   ========================================== */
 .catalogo {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -50,9 +121,17 @@ header h1 {
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Tarjeta de cada Producto */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   TARJETA DE PRODUCTO e INTERACCIONES
+   ========================================== */
 .tarjeta-producto {
     background-color: #fff;
     border-radius: 16px;
@@ -62,24 +141,33 @@ header h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .tarjeta-producto:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(214, 160, 160, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(181, 124, 124, 0.2);
 }
 
-/* Fotos estáticas normales (como los Nike Shox) */
+/* Fotos estáticas normales (Nike Shox) */
 .foto-producto {
     width: 100%;
-    height: 320px; /* Mantiene la misma altura simétrica */
-    object-fit: contain; /* Evita que los tenis se deformen */
+    height: 320px;
+    object-fit: contain;
     background-color: #ffffff;
     padding: 15px;
     border-bottom: 1px solid #f0e6e1;
+    transition: transform 0.5s ease;
 }
 
+.tarjeta-producto:hover .foto-producto {
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   INFO INTERNA Y TEXTOS
+   ========================================== */
 .info-producto {
     padding: 25px;
     text-align: center;
@@ -111,7 +199,9 @@ header h1 {
     margin-bottom: 20px;
 }
 
-/* Botón de WhatsApp elegante */
+/* ==========================================
+   BOTÓN WHATSAPP
+   ========================================== */
 .btn-whatsapp {
     display: inline-block;
     background-color: #25d366; 
@@ -121,58 +211,57 @@ header h1 {
     text-decoration: none;
     font-weight: bold;
     letter-spacing: 1px;
-    transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, transform 0.2s;
     width: 100%;
 }
 
 .btn-whatsapp:hover {
+    transform: scale(1.02);
     background-color: #128c7e;
 }
 
-/* Pie de página */
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #a39085;
-    font-size: 0.9rem;
-}
-
 /* ==========================================
-   PROGRAMACIÓN DEL CARRUSEL DE FOTOS NUEVO 
+   CARRUSEL DE FOTOS (SKECHERS)
    ========================================== */
 .carrusel-contenedor {
     width: 100%;
-    height: 320px; /* Igual que la foto estática para mantener la simetría */
+    height: 320px;
     overflow-x: auto;
+    overflow-y: hidden;
     display: flex;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     background-color: #ffffff;
     border-bottom: 1px solid #f0e6e1;
+    position: relative;
 }
 
-/* Oculta la barra de scroll en celulares */
 .carrusel-contenedor::-webkit-scrollbar {
     display: none;
 }
 
 .carrusel-foto {
     min-width: 100%;
-    max-width: 100%; /* Evita que se estire a los lados */
+    max-width: 100%;
     height: 100%;
-    max-height: 320px; /* Controla que nunca pase de la altura ideal */
-    object-fit: contain; /* Mantiene el calzado nítido y completo */
+    max-height: 320px;
+    object-fit: contain;
     scroll-snap-align: start;
     padding: 15px;
+    transition: transform 0.5s ease;
 }
 
+.tarjeta-producto:hover .carrusel-foto {
+    transform: scale(1.04);
+}
 
-/* Etiqueta flotante de "Desliza color" */
 .indicador-deslizar {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: rgba(181, 124, 124, 0.85); /* Tono oro rosa elegante de tu marca */
+    background: rgba(181, 124, 124, 0.85);
     color: white;
     padding: 5px 12px;
     border-radius: 20px;
@@ -182,95 +271,61 @@ footer {
     z-index: 10;
     letter-spacing: 0.5px;
 }
+
 /* ==========================================
-   NUEVOS EFECTOS VISUALES Y ANIMACIONES
+   PIE DE PÁGINA
    ========================================== */
-
-/* Animación de entrada suave para todo el catálogo */
-.catalogo {
-    animation: fadeIn 0.8s ease-in-out;
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #a39085;
+    font-size: 0.9rem;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Efecto mejorado al tocar o pasar el mouse por la tarjeta */
-.tarjeta-producto {
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.tarjeta-producto:hover {
-    transform: translateY(-10px); /* Se eleva con elegancia */
-    box-shadow: 0 15px 30px rgba(181, 124, 124, 0.2); /* Sombra suave con el tono rosa de tu marca */
-}
-
-/* Efecto de Zoom Suave en la foto del calzado */
-.foto-producto, .carrusel-foto {
-    transition: transform 0.5s ease;
-}
-
-.tarjeta-producto:hover .foto-producto,
-.tarjeta-producto:hover .carrusel-foto {
-    transform: scale(1.05); /* Amplía la imagen un 5% de forma muy sutil y estética */
-}
-
-/* Animación de pulso para el botón de WhatsApp (Llama a la acción) */
-.btn-whatsapp {
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.btn-whatsapp:hover {
-    transform: scale(1.02); /* Se agranda un poquito al tocarlo */
-    background-color: #128c7e;
-}
 /* ==========================================
    OPTIMIZACIÓN PREMIUM PARA CELULARES 
    ========================================== */
 @media (max-width: 580px) {
-    /* Encabezado más compacto en celular */
     header {
-        padding: 25px 15px;
+        padding: 12px 15px; /* Encabezado súper minimalista en celular */
     }
     
     header h1 {
-        font-size: 1.8rem;
-        letter-spacing: 2px;
+        font-size: 1.4rem !important;
+        letter-spacing: 1px;
     }
     
     .eslogan {
-        font-size: 0.9rem;
+        font-size: 0.75rem !important;
     }
 
-    /* Mostrar 2 productos por fila en lugar de 1 solo gigante */
+    .logo-min {
+        max-width: 45px; /* Logo discreto para la barra fija móvil */
+    }
+
+    /* 2 Columnas perfectas tipo Instagram Shop */
     .catalogo {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px; /* Espacio más fino entre tarjetas */
-        padding: 15px 10px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        padding: 15px 10px !important;
     }
 
-    /* Ajuste de tarjeta para que no se vea tosca */
     .tarjeta-producto {
         border-radius: 12px;
     }
 
-    /* Reducimos la altura de la foto para que encaje en las dos columnas */
+    /* FOTOS MÁS GRANDES EN CELULAR (De 180px subió a 230px) */
     .foto-producto, 
     .carrusel-contenedor {
-        height: 180px; 
-        padding: 8px;
+        height: 230px !important; 
+        padding: 5px !important;
     }
     
     .carrusel-foto {
-        max-height: 180px;
-        padding: 8px;
+        max-height: 230px !important;
+        padding: 5px !important;
     }
 
-    /* Indicador de "Desliza color" más discreto */
     .indicador-deslizar {
         top: 8px;
         right: 8px;
@@ -278,25 +333,24 @@ footer {
         font-size: 0.65rem;
     }
 
-    /* Ajuste de textos internos de la info del producto */
     .info-producto {
         padding: 12px;
     }
 
     .info-producto h3 {
-        font-size: 0.95rem; /* Título elegante y legible */
+        font-size: 0.95rem;
         margin-bottom: 4px;
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; /* Si el nombre es muy largo, añade '...' */
+        text-overflow: ellipsis;
     }
 
     .descripcion {
         font-size: 0.8rem;
         margin-bottom: 10px;
-        height: auto; /* Permite que se adapte */
+        height: auto;
         display: -webkit-box;
-        -webkit-line-clamp: 2; /* Muestra máximo 2 líneas de texto */
+        -webkit-line-clamp: 2; /* Corta ordenadamente a 2 líneas */
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -306,7 +360,6 @@ footer {
         margin-bottom: 12px;
     }
 
-    /* Botón de WhatsApp adaptado para pulgares en celulares */
     .btn-whatsapp {
         padding: 10px 10px;
         font-size: 0.85rem;
