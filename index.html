@@ -33,12 +33,13 @@
         </div>
     </header>
 
-    <!-- MENÚ DE CATEGORÍAS ELEGANTE -->
+       <!-- MENÚ DE CATEGORÍAS CON FILTRO FORZADO DE EMERGENCIA -->
     <div class="categorias-contenedor">
-        <button class="btn-categoria activo">Todo</button>
-        <button class="btn-categoria">Calzado</button>
-        <button class="btn-categoria">Accesorios</button>
+        <a href="#" class="btn-categoria activo" data-filter="todo" onclick="filtrarProductos('todo')">Todo</a>
+        <a href="#" class="btn-categoria" data-filter="calzado" onclick="filtrarProductos('calzado')">Calzado</a>
+        <a href="#" class="btn-categoria" data-filter="accesorios" onclick="filtrarProductos('accesorios')">Accesorios</a>
     </div>
+
 
     <!-- Contenedor del Catálogo -->
     <main class="catalogo">
@@ -75,8 +76,8 @@
             </div>
         </div>
 
-        <!-- PRODUCTO 3: NUEVO LANZAMIENTO (EJEMPLO ADICIONAL) -->
-        <div class="tarjeta-producto">
+               <!-- PRODUCTO 3: ADIDAS FORUM CORREGIDO -->
+        <div class="tarjeta-producto" data-category="calzado">
             <img src="adidas-forum.png" alt="Adidas Forum Low" class="foto-producto">
             <div class="info-producto">
                 <h3>Adidas Forum Low</h3>
@@ -88,23 +89,48 @@
             </div>
         </div>
 
+
     </main>
 
     <footer>
         <p>© 2026 JADARA - Belleza con propósito. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- SCRIPT PROGRAMADO PARA QUITAR LA PANTALLA DE CARGA -->
-    <script>
+     <script>
+        // 1. Ocultar pantalla de bienvenida
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const pantalla = document.getElementById('pantalla-carga');
-                if (pantalla) {
-                    pantalla.classList.add('ocultar-carga');
-                }
+                if (pantalla) pantalla.classList.add('ocultar-carga');
             }, 1300);
         });
+
+        // 2. Función global de Filtros (A prueba de fallos en celulares)
+        function filtrarProductos(filtro) {
+            // Cambiar estado visual de los botones
+            const botones = document.querySelectorAll('.btn-categoria');
+            botones.forEach(b => {
+                if (b.getAttribute('data-filter') === filtro) {
+                    b.classList.add('activo');
+                } else {
+                    b.classList.remove('activo');
+                }
+            });
+
+            // Filtrar las tarjetas de productos
+            const productos = document.querySelectorAll('.tarjeta-producto');
+            productos.forEach(producto => {
+                const categoriaProducto = producto.getAttribute('data-category');
+                
+                if (filtro === 'todo' || categoriaProducto === filtro) {
+                    producto.style.display = 'flex';
+                } else {
+                    producto.style.display = 'none';
+                }
+            });
+        }
     </script>
+
 
 </body>
 </html>
