@@ -59,6 +59,9 @@ header h1 {
     overflow: hidden;
     border: 1px solid #f0e6e1;
     box-shadow: 0 6px 16px rgba(74, 59, 50, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: transform 0.3s ease;
 }
 
@@ -67,15 +70,23 @@ header h1 {
     box-shadow: 0 10px 20px rgba(214, 160, 160, 0.15);
 }
 
+/* Fotos estáticas normales (como los Nike Shox) */
 .foto-producto {
     width: 100%;
-    height: 300px;
-    object-fit: cover; /* Ajuste estético original */
+    height: 320px; /* Mantiene la misma altura simétrica */
+    object-fit: contain; /* Evita que los tenis se deformen */
+    background-color: #ffffff;
+    padding: 15px;
+    border-bottom: 1px solid #f0e6e1;
 }
 
 .info-producto {
     padding: 25px;
     text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .info-producto h3 {
@@ -124,4 +135,47 @@ footer {
     padding: 30px;
     color: #a39085;
     font-size: 0.9rem;
+}
+
+/* ==========================================
+   PROGRAMACIÓN DEL CARRUSEL DE FOTOS NUEVO 
+   ========================================== */
+.carrusel-contenedor {
+    width: 100%;
+    height: 320px; /* Igual que la foto estática para mantener la simetría */
+    overflow-x: auto;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0e6e1;
+}
+
+/* Oculta la barra de scroll en celulares */
+.carrusel-contenedor::-webkit-scrollbar {
+    display: none;
+}
+
+.carrusel-foto {
+    min-width: 100%;
+    height: 100%;
+    object-fit: contain; /* Las fotos del carrusel también se verán completas */
+    scroll-snap-align: start;
+    padding: 15px;
+}
+
+/* Etiqueta flotante de "Desliza color" */
+.indicador-deslizar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(181, 124, 124, 0.85); /* Tono oro rosa elegante de tu marca */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    pointer-events: none;
+    z-index: 10;
+    letter-spacing: 0.5px;
 }
