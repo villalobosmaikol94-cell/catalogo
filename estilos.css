@@ -113,36 +113,40 @@ header h1 {
 }
 
 /* ==========================================
-   BARRA DE CATEGORÍAS ELEGANTE
+   BARRA DE CATEGORÍAS ELEGANTE (CORREGIDA)
    ========================================== */
 .categorias-contenedor {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 20px 10px 5px 10px;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding: 20px 10px 5px 10px !important;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto !important;
+    width: 100% !important;
 }
 
 .btn-categoria {
-    background-color: #ffffff;
-    border: 1px solid #f0e6e1;
-    color: #7a685d;
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border-radius: 20px;
+    background-color: #ffffff !important;
+    border: 1px solid #f0e6e1 !important;
+    color: #7a685d !important;
+    padding: 8px 18px !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    border-radius: 20px !important;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important;
+    -webkit-appearance: none; /* Quita el diseño por defecto de celulares */
+    appearance: none;
 }
 
 .btn-categoria.activo, .btn-categoria:hover {
-    background-color: #b57c7c; /* Tono oro rosa de tu marca */
-    color: #ffffff;
-    border-color: #b57c7c;
-    box-shadow: 0 4px 10px rgba(181, 124, 124, 0.2);
+    background-color: #b57c7c !important; /* Rosa de JADARA */
+    color: #ffffff !important;
+    border-color: #b57c7c !important;
+    box-shadow: 0 4px 10px rgba(181, 124, 124, 0.2) !important;
 }
+
 
 /* ==========================================
    CUADRÍCULA DE PRODUCTOS (ESCRITORIO)
@@ -294,18 +298,19 @@ header h1 {
 
 .indicador-deslizar {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 10px;
+    left: 10px; /* Cambiado a la izquierda para que nunca se corte con el borde lateral */
     background: rgba(181, 124, 124, 0.85);
     color: white;
     padding: 5px 12px;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: bold;
     pointer-events: none;
     z-index: 10;
     letter-spacing: 0.5px;
 }
+
 
 /* ==========================================
    PIE DE PÁGINA
