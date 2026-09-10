@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JADARA - Catálogo Oficial</title>
+    <!-- IMPORTACIÓN DE FUENTES PREMIUM DESDE GOOGLE FONTS -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <!-- Forzamos la actualización de estilos incrementando la versión -->
-    <link rel="stylesheet" href="estilos.css?v=1.6">
+    <link rel="stylesheet" href="estilos.css?v=1.7">
 </head>
 <body>
 
@@ -29,21 +33,29 @@
         </div>
     </header>
 
+    <!-- MENÚ DE CATEGORÍAS ELEGANTE -->
+    <div class="categorias-contenedor">
+        <button class="btn-categoria activo">Todo</button>
+        <button class="btn-categoria">Calzado</button>
+        <button class="btn-categoria">Accesorios</button>
+    </div>
+
     <!-- Contenedor del Catálogo -->
     <main class="catalogo">
 
         <!-- PRODUCTO 1: SKECHERS UNIFICADAS CON CARRUSEL DE COLORES -->
-        <div class="tarjeta-producto" style="position: relative;">
-            <div class="indicador-deslizar">↔ Desliza color</div>
-            <div class="carrusel-contenedor">
-                <img src="skechers-max.png" alt="Skechers Max Slip Negra" class="carrusel-foto">
-                <img src="skechers-max-gris.png" alt="Skechers Max Slip Gris" class="carrusel-foto">
+        <div class="tarjeta-producto">
+            <div style="position: relative; width: 100%;">
+                <div class="indicador-deslizar">↔ Desliza color</div>
+                <div class="carrusel-contenedor">
+                    <img src="skechers-max.png" alt="Skechers Max Slip Negra" class="carrusel-foto">
+                    <img src="skechers-max-gris.png" alt="Skechers Max Slip Gris" class="carrusel-foto">
+                </div>
             </div>
             <div class="info-producto">
                 <h3>Skechers Max Slip</h3>
                 <p class="descripcion">Máximo confort y amortiguación sin cordones. Disponibles en Gris y Negro. <br><strong>Tallas: 44 y 45.</strong></p>
                 <span class="precio">$155.000 COP</span>
-                <!-- ENLACE DIRECTO DE APP - Abre directo WhatsApp sin pasar por webs externas -->
                 <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Skechers%20Max%20Slip%20de%20$155.000" class="btn-whatsapp">
                     Pedir por WhatsApp
                 </a>
@@ -57,8 +69,20 @@
                 <h3>Nike Shox TL</h3>
                 <p class="descripcion">Diseño icónico con columnas de amortiguación expuestas, estilo urbano y máxima resistencia.</p>
                 <span class="precio">$170.000 COP</span>
-                <!-- ENLACE DIRECTO DE APP - Abre directo WhatsApp sin pasar por webs externas -->
                 <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Nike%20Shox%20TL%20de%20$170.000" class="btn-whatsapp">
+                    Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUCTO 3: NUEVO LANZAMIENTO (EJEMPLO ADICIONAL) -->
+        <div class="tarjeta-producto">
+            <img src="adidas-forum.png" alt="Adidas Forum Low" class="foto-producto">
+            <div class="info-producto">
+                <h3>Adidas Forum Low</h3>
+                <p class="descripcion">Estilo clásico de baloncesto retro con correa ajustable en el tobillo y cuero premium adaptable.</p>
+                <span class="precio">$165.000 COP</span>
+                <a href="whatsapp://send?phone=573246670248&text=Hola%20JADARA,%20me%20interesan%20las%20Adidas%20Forum%20Low%20de%20$165.000" class="btn-whatsapp">
                     Pedir por WhatsApp
                 </a>
             </div>
