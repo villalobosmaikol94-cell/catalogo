@@ -228,3 +228,33 @@ footer {
     transform: scale(1.02); /* Se agranda un poquito al tocarlo */
     background-color: #128c7e;
 }
+/* Botón Flotante de WhatsApp */
+.btn-flotante-wa {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    transition: transform 0.3s, background-color 0.3s;
+    animation: bounceIn 1s ease-out;
+}
+
+.btn-flotante-wa:hover {
+    transform: scale(1.1) rotate(10deg);
+    background-color: #128c7e;
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
