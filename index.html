@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JADARA - Catálogo Oficial</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilos.css?v=1.1">
 </head>
 <body>
 
@@ -58,3 +58,84 @@
 
 </body>
 </html>
+
+/* ==========================================
+   OPTIMIZACIÓN PREMIUM PARA CELULARES 
+   ========================================== */
+@media (max-width: 580px) {
+    header {
+        padding: 25px 15px;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .eslogan {
+        font-size: 0.9rem;
+    }
+
+    /* 2 Columnas perfectas tipo Instagram Shop */
+    .catalogo {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        padding: 15px 10px !important;
+    }
+
+    .tarjeta-producto {
+        border-radius: 12px;
+    }
+
+    /* Forzamos el tamaño correcto de imagen en celular */
+    .foto-producto, 
+    .carrusel-contenedor {
+        height: 180px !important; 
+        padding: 8px !important;
+    }
+    
+    .carrusel-foto {
+        max-height: 180px !important;
+        padding: 8px !important;
+    }
+
+    .indicador-deslizar {
+        top: 8px;
+        right: 8px;
+        padding: 3px 8px;
+        font-size: 0.65rem;
+    }
+
+    .info-producto {
+        padding: 12px;
+    }
+
+    .info-producto h3 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .descripcion {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        height: auto;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .precio {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    .btn-whatsapp {
+        padding: 10px 10px;
+        font-size: 0.85rem;
+        letter-spacing: 0px;
+    }
+}
