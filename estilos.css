@@ -228,3 +228,88 @@ footer {
     transform: scale(1.02); /* Se agranda un poquito al tocarlo */
     background-color: #128c7e;
 }
+/* ==========================================
+   OPTIMIZACIÓN PREMIUM PARA CELULARES 
+   ========================================== */
+@media (max-width: 580px) {
+    /* Encabezado más compacto en celular */
+    header {
+        padding: 25px 15px;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .eslogan {
+        font-size: 0.9rem;
+    }
+
+    /* Mostrar 2 productos por fila en lugar de 1 solo gigante */
+    .catalogo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px; /* Espacio más fino entre tarjetas */
+        padding: 15px 10px;
+    }
+
+    /* Ajuste de tarjeta para que no se vea tosca */
+    .tarjeta-producto {
+        border-radius: 12px;
+    }
+
+    /* Reducimos la altura de la foto para que encaje en las dos columnas */
+    .foto-producto, 
+    .carrusel-contenedor {
+        height: 180px; 
+        padding: 8px;
+    }
+    
+    .carrusel-foto {
+        max-height: 180px;
+        padding: 8px;
+    }
+
+    /* Indicador de "Desliza color" más discreto */
+    .indicador-deslizar {
+        top: 8px;
+        right: 8px;
+        padding: 3px 8px;
+        font-size: 0.65rem;
+    }
+
+    /* Ajuste de textos internos de la info del producto */
+    .info-producto {
+        padding: 12px;
+    }
+
+    .info-producto h3 {
+        font-size: 0.95rem; /* Título elegante y legible */
+        margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Si el nombre es muy largo, añade '...' */
+    }
+
+    .descripcion {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+        height: auto; /* Permite que se adapte */
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Muestra máximo 2 líneas de texto */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .precio {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
+    /* Botón de WhatsApp adaptado para pulgares en celulares */
+    .btn-whatsapp {
+        padding: 10px 10px;
+        font-size: 0.85rem;
+        letter-spacing: 0px;
+    }
+}
